@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nature of Mind Research Project — Participant Information / Livret d'informations</title>
+<style>
+  :root {
+    --maroon-900: #4a1420;
+    --maroon-700: #6d1c2c;
+    --maroon-600: #7f2436;
+    --gold-500: #b8924a;
+    --gold-300: #d9bd85;
+    --cream-50: #faf7f2;
+    --cream-100: #f3ede2;
+    --ink-900: #241b17;
+    --ink-600: #5a4d47;
+    --ink-400: #8a7c74;
+    --line: #e4d9c9;
+    --radius: 10px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    color: var(--ink-900);
+    background: var(--cream-50);
+    line-height: 1.5;
+  }
+
+  a { color: var(--maroon-700); }
+
+  h1, h2, h3, h4 {
+    font-family: "Iowan Old Style", Georgia, "Times New Roman", serif;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--maroon-900);
+    margin-top: 0;
+  }
+
+  .eyebrow {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--gold-500);
+  }
+
+  /* ---------- Language toggle ---------- */
+  /* !important: .only-en/.only-fr must always win over any other class's own
+     display rule (e.g. .sub, .note both set display:block with higher specificity) */
+  body[data-lang="fr"] .only-en { display: none !important; }
+  body[data-lang="en"] .only-fr { display: none !important; }
+
+  .lang-switch {
+    display: flex;
+    gap: 3px;
+    background: var(--cream-100);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 3px;
+  }
+  .lang-btn {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border: none;
+    background: transparent;
+    color: var(--ink-400);
+    padding: 5px 13px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .lang-btn.active { background: var(--maroon-700); color: #fff; }
+
+  /* ---------- Top bar / nav ---------- */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250, 247, 242, 0.94);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .brand {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--maroon-900);
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+  .brand span { color: var(--gold-500); }
+  .topbar-right { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  nav.links {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  nav.links a {
+    font-size: 0.86rem;
+    text-decoration: none;
+    color: var(--ink-600);
+    font-weight: 500;
+  }
+  nav.links a:hover { color: var(--maroon-700); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: linear-gradient(180deg, var(--maroon-900) 0%, var(--maroon-700) 100%);
+    color: var(--cream-100);
+    padding: 64px 24px 56px;
+  }
+  .hero-inner {
+    max-width: 880px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hero .eyebrow { display: block; color: var(--gold-300); margin-bottom: 26px; font-size: 1.2rem; letter-spacing: 0.1em; }
+  .hero h1 {
+    color: #fff;
+    font-size: clamp(1.9rem, 3.4vw, 2.7rem);
+    margin-bottom: 40px;
+    line-height: 1.25;
+  }
+  .hero p.lead {
+    font-size: 1.2rem;
+    color: var(--cream-100);
+    max-width: 640px;
+    margin: 0 auto 5px;
+    opacity: 0.92;
+  }
+
+  /* ---------- Sections ---------- */
+  section {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 56px 24px;
+  }
+  section + section { border-top: 1px solid var(--line); }
+  .section-head { margin-bottom: 28px; }
+  .section-head h2 { font-size: 1.55rem; }
+  .section-head h3 { font-size: 1.5rem; }
+  .section-head .eyebrow { margin-bottom: 6px; display: block; }
+
+  p { color: var(--ink-600); font-size: 1.05rem; }
+
+  /* ---------- Cards ---------- */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 700px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 26px;
+  }
+
+  .card h3 {
+    font-size: 1.12rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card .tag {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    color: var(--maroon-700);
+    background: var(--cream-100);
+    border: 1px solid var(--line);
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-left: 10px;
+  }
+  .card ul { margin: 10px 0 0; padding-left: 20px; color: var(--ink-600); font-size: 1.05rem; }
+  .card li { margin-bottom: 6px; }
+  .card .meta {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--line);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.86rem;
+    color: var(--ink-400);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .card .meta b { color: var(--maroon-700); }
+
+  /* ---------- Photo gallery ---------- */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 26px;
+  }
+  @media (max-width: 700px) { .photo-grid { grid-template-columns: 1fr; } }
+  .photo-frame {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--cream-100);
+    border: 1px solid var(--line);
+  }
+  .photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo-frame .photo-caption {
+    display: none;
+    position: absolute;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.76rem;
+    color: var(--ink-400);
+  }
+  .photo-frame.img-missing img { display: none; }
+  .photo-frame.img-missing .photo-caption { display: flex; }
+
+  /* ---------- Travel route list ---------- */
+  .route-list { list-style: none; margin: 10px 0 0; padding: 0; }
+  .route-list li { padding: 10px 0; border-top: 1px solid var(--line); }
+  .route-list li:first-child { border-top: none; padding-top: 0; }
+  .route-list .route-from { font-weight: 700; color: var(--maroon-900); font-size: 0.95rem; }
+  .route-list .route-steps { color: var(--ink-600); font-size: 1.05rem; margin-top: 2px; }
+
+  .plain-list { padding-left: 20px; color: var(--ink-600); margin: 10px 0 0; font-size: 1.05rem; }
+  .plain-list li { margin-bottom: 8px; }
+
+  .dash-list { list-style: none; padding-left: 0; margin: 6px 0 0; }
+  .dash-list li { padding-left: 1.1em; text-indent: -1.1em; margin-bottom: 4px; }
+  .dash-list li::before { content: "\2022\a0"; }
+
+  /* ---------- Arrival / departure timeline ---------- */
+  .week-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .week-card .week-head {
+    background: var(--cream-100);
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  .week-card .week-head h3 { margin: 0; font-size: 1.15rem; }
+  .week-card .week-head .dates {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.82rem;
+    color: var(--maroon-700);
+    font-weight: 600;
+  }
+  .week-body { padding: 20px 24px; }
+  .timeline-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 18px;
+    padding: 14px 0;
+  }
+  .timeline-row + .timeline-row { border-top: 1px solid var(--line); }
+  .timeline-row .point {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--maroon-900);
+  }
+  .timeline-row .point .sub {
+    display: block;
+    font-weight: 500;
+    color: var(--maroon-900);
+    font-size: 0.76rem;
+    margin-top: 2px;
+  }
+  .timeline-row .detail { font-size: 1.05rem; }
+  .timeline-row .detail strong { color: var(--ink-900); }
+  .timeline-row .detail .note {
+    display: block;
+    margin-top: 12px;
+    font-size: 0.95rem;
+    line-height: 1.3;
+    color: var(--ink-400);
+  }
+
+  .callout {
+    background: var(--cream-100);
+    border-left: 3px solid var(--gold-500);
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 1.05rem;
+    color: var(--ink-600);
+    margin-top: 18px;
+  }
+
+  /* ---------- Practical info ---------- */
+  .info-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+  .info-list > li {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+    font-size: 1.05rem;
+  }
+  .info-list > li:last-child { border-bottom: none; padding-bottom: 0; }
+  .info-list .label {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    color: var(--maroon-700);
+  }
+  @media (max-width: 600px) {
+    .info-list > li { grid-template-columns: 1fr; gap: 4px; }
+  }
+
+  /* ---------- Team ---------- */
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  @media (max-width: 700px) { .team-grid { grid-template-columns: 1fr; } }
+  .team-member {
+    border: 1px solid var(--line);
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 16px 18px;
+  }
+  .team-member .name { font-weight: 700; color: var(--maroon-900); font-size: 0.98rem; }
+  .team-member .role {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.82rem;
+    color: var(--ink-400);
+    margin-top: 2px;
+  }
+  .coordinator-badge {
+    display: inline-block;
+    margin-top: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    color: var(--gold-500);
+    border: 1px solid var(--gold-300);
+    border-radius: 999px;
+    padding: 2px 10px;
+  }
+
+  .teacher-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-top: 18px;
+  }
+  .teacher-card .name { font-weight: 700; color: var(--maroon-900); font-size: 1.02rem; }
+  .teacher-card p { margin-top: 10px; }
+  .subhead { margin-top: 40px; margin-bottom: 16px; }
+  .subhead h3 { font-size: 1.08rem; }
+
+  /* ---------- Contact ---------- */
+  .contact-box {
+    background: var(--maroon-900);
+    color: var(--cream-100);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+  }
+  .contact-box h2 { color: #fff; }
+  .contact-box p { color: var(--cream-100); opacity: 0.85; }
+  .contact-box .btn-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+  }
+  .contact-box a.btn {
+    display: inline-block;
+    background: var(--gold-500);
+    color: var(--maroon-900);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    text-decoration: none;
+    padding: 11px 26px;
+    border-radius: 999px;
+  }
+  .contact-box a.btn-outline {
+    background: transparent;
+    color: var(--gold-300);
+    border: 1px solid var(--gold-300);
+  }
+
+  /* ---------- Footer / logos ---------- */
+  footer {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+    text-align: center;
+  }
+  .logo-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+  }
+  .logo-row img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+    background: #fff;
+    padding: 12px 18px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+  }
+  footer .fine-print {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.9rem;
+    color: var(--ink-400);
+  }
+</style>
+</head>
+<body data-lang="fr">
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">Nature of Mind <span>Research Project</span></div>
+      <div class="topbar-right">
+        <nav class="links">
+          <a href="#overview"><span class="only-en">Overview</span><span class="only-fr">Aperçu</span></a>
+          <a href="#phases"><span class="only-en">Study Phases</span><span class="only-fr">Phases de l'étude</span></a>
+          <a href="#venue"><span class="only-en">Venue</span><span class="only-fr">Le lieu</span></a>
+          <a href="#travel"><span class="only-en">Getting There</span><span class="only-fr">Venir</span></a>
+          <a href="#schedule"><span class="only-en">Arrival &amp; Departure</span><span class="only-fr">Arrivée &amp; départ</span></a>
+          <a href="#costs"><span class="only-en">Costs</span><span class="only-fr">Tarifs</span></a>
+          <a href="#practical"><span class="only-en">Info</span><span class="only-fr">Infos</span></a>
+          <a href="#team"><span class="only-en">Team</span><span class="only-fr">Équipe</span></a>
+        </nav>
+        <div class="lang-switch">
+          <button type="button" class="lang-btn" data-set-lang="fr">FR</button>
+          <button type="button" class="lang-btn" data-set-lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow only-en">Scientific Research on Meditation and Self-Awareness</span>
+      <span class="eyebrow only-fr">Recherche scientifique sur la méditation et la conscience de soi</span>
+      <h1 class="only-en">Participant Information Booklet</h1>
+      <h1 class="only-fr">Livret d'informations<br>pour les participants</h1>
+      <p class="lead only-en">
+        On this page you'll find all the practical information about the study, and in particular the September 2026 meditation retreat: 
+        how to get there, your arrival and departure times, as well as rates and accommodation conditions.
+      </p>
+      <p class="lead only-fr">
+        Vous trouverez sur cette page toutes les informations pratiques concernant l'étude, et notamment la retraite de méditation de septembre 2026 : comment vous y rendre, 
+        vos horaires d'arrivée et de départ, ainsi que les tarifs et conditions d'hébergement.
+      </p>
+    </div>
+  </header>
+
+  <section id="overview">
+    <div class="section-head">
+      <span class="eyebrow only-en">About the study</span>
+      <span class="eyebrow only-fr">À propos de l'étude</span>
+      <h2 class="only-en">Overview</h2>
+      <h2 class="only-fr">Aperçu</h2>
+    </div>
+    <div class="callout" style="margin-top:0; margin-bottom:20px;">
+      <span class="only-en">In collaboration with Mingyur Rinpoche, a meditation teacher at Tergar International 
+        in the Tibetan Buddhist tradition, an international team of researchers has come together to study meditation on the Nature of Mind.</span>
+      <span class="only-fr">En collaboration avec Mingyur Rinpoché, enseignant de méditation à Tergar International dans la tradition du bouddhisme tibétain, 
+        une équipe internationale de chercheurs s'est constituée pour étudier la méditation sur la Nature de l'Esprit.</span>
+    </div>
+    <p class="only-en">
+      This project aims to better understand the <strong>subjective experience</strong> during meditative practice,
+      exploring processes related to <strong>consciousness</strong>, <strong>sense of self</strong>, and <strong>emotions</strong> within this contemplative context.
+    </p>
+    <p class="only-fr">
+      Ce projet vise à mieux comprendre <strong>l'expérience subjective</strong> vécue pendant la pratique 
+      méditative, en explorant les processus liés à <strong>la conscience</strong>, au <strong>sentiment de soi</strong> et aux <strong>émotions</strong> dans ce contexte contemplatif.
+    </p>
+    <p class="only-en">
+      To this end, the team combines <strong>questionnaires</strong> with <strong>scientific experiments</strong>, including 
+      measures of brain electrical activity (EEG) and bodily physiological activity, recorded during meditation sessions.
+    </p>
+    <p class="only-fr">
+      Pour cela, l'équipe combine <strong>questionnaires</strong> et des <strong>expériences scientifiques</strong>, 
+      incluant des mesures de l'activité électrique cérébrale (EEG) et de l'activité physiologique 
+      corporelle, réalisées pendant les séances de méditation.
+    </p>
+    <p class="only-en">
+      This study is aimed at experienced practitioners who have received direct 
+      introduction to the Nature of Mind from a qualified teacher in the <strong>Mahāmudrā / Dzogchen</strong> 
+      tradition, and who engage regularly in these teachings.
+    </p>
+    <p class="only-fr">
+      Ce travail s'adresse à des pratiquants expérimentés ayant reçu une introduction directe à 
+      la Nature de l'Esprit par un enseignant qualifié dans la <strong>tradition Mahāmudrā / Dzogchen</strong>, 
+      et qui s'engagent régulièrement dans ces enseignements.
+    </p>
+  </section>
+
+  <section id="phases">
+    <div class="section-head">
+      <span class="eyebrow only-en">How the study is organized</span>
+      <span class="eyebrow only-fr">Comment l'étude est organisée</span>
+      <h2 class="only-en">Study Phases</h2>
+      <h2 class="only-fr">Phases de l'étude</h2>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>
+          <span class="only-en">Phase 1 <span class="tag">Online</span></span>
+          <span class="only-fr">Phase 1 <span class="tag">En ligne</span></span>
+        </h3>
+        <p class="only-en" style="margin-top:0;">
+          You will receive two emails containing links to the questionnaires. There is no need to look for them, as the research team will send them directly to you.
+            <br><br>We will ask you to complete these questionnaires immediately after a formal meditation session involving practices aimed at recognizing and stabilizing awareness of the Nature of Mind.
+            <br><strong>Your task will be to evaluate the extent to which selected items from previously validated questionnaires adequately capture the experience of the Nature of Mind and/or other notable meditation experiences.</strong>
+            <br><br>All practical information and necessary instructions will be provided in the email accompanying the questionnaire links.
+
+        </p>
+        <p class="only-fr" style="margin-top:0;">
+          Vous recevrez par e-mail deux liens vous permettant d'accéder aux questionnaires. 
+          Il n'est pas nécessaire de les rechercher : l'équipe de recherche vous les enverra directement.
+          <br><br>Nous vous demanderons de compléter ces questionnaires immédiatement après une séance de méditation formelle comprenant des 
+          pratiques visant à reconnaître et à stabiliser la conscience de la Nature de l'Esprit. 
+          <br><strong>Votre tâche consistera à évaluer 
+          dans quelle mesure certains items, issus de questionnaires déjà validés, permettent de rendre compte de l'expérience de la Nature de 
+          l'Esprit et/ou d'expériences méditatives remarquables.</strong>
+          <br><br>Toutes les informations pratiques et les consignes nécessaires seront précisées dans l'e-mail accompagnant les liens vers les questionnaires.
+        </p>
+        <ul>
+          <li class="only-en">Completed remotely, at your own pace</li>
+          <li class="only-fr">À réaliser à distance, à votre rythme</li>
+          <li class="only-en">No fixed date - simply complete it <strong>before Phase 2</strong> begins</li>
+          <li class="only-fr">Pas de date fixe - à compléter simplement <strong>avant le début de la Phase 2</strong></li>
+        </ul>
+        <div class="meta">
+          <span class="only-en">Estimated time: <b>~2 hours</b></span>
+          <span class="only-fr">Durée estimée : <b>~2 heures</b></span>
+          <span class="only-en">Compensation: <b>€20</b></span>
+          <span class="only-fr">Indemnisation : <b>20 €</b></span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>
+          <span class="only-en">Phase 2 <span class="tag">In-person retreat</span></span>
+          <span class="only-fr">Phase 2 <span class="tag">Retraite en présentiel</span></span>
+        </h3>
+        <p class="only-en" style="margin-top:0;">
+          The second phase of the study consists of a one-week meditation retreat, which will take place in France in <strong>September 2026</strong>. 
+          During this retreat, you will alternate between group meditation practice sessions and experimental neuroscience sessions.
+          <br><br>Over the course of the week, you will take part in a total of <strong>three experimental sessions</strong>, each lasting approximately 2.5 hours. 
+          The aim of these experiments is to investigate different aspects of mental functioning, including self-awareness and emotions.
+          <br><br>During these sessions, various measurements will be collected, including physiological data (such as your heart rate), as well as recordings of 
+          brain activity using a non-invasive technique called electroencephalography (EEG).
+        </p>
+        <p class="only-fr" style="margin-top:0;">
+          La deuxième phase de l'étude consiste en une retraite de méditation d'une semaine, qui se déroulera en France en <strong>septembre 2026</strong>. 
+          Durant cette retraite, vous alternerez entre des séances de pratique collective et des sessions expérimentales en neurosciences
+          <br><br>Au cours de cette semaine, vous participerez à un total de <strong>trois sessions expérimentales</strong> d'environ 2 h 30 chacune. L'objectif de ces expériences 
+          est d'étudier différents aspects du fonctionnement mental, notamment la conscience de soi et les émotions.
+          <br><br>Lors de ces sessions, différentes mesures seront recueillies, notamment des mesures physiologiques (telles que votre rythme cardiaque), ainsi que des 
+          enregistrements de votre activité cérébrale à l'aide d'une technique non invasive appelée électroencéphalographie (EEG).
+          
+        </p>
+        <ul>
+          <li class="only-en">In the Ain (France), near Lyon / Geneva.</li>
+          <li class="only-fr">Dans l'Ain, proche de Lyon / Genève.</li>
+          <li class="only-en">Two possible weeks: from September 5 to 12 / or from September 12 to 19, 2026.</li>
+          <li class="only-fr">2 semaines au choix : du 5 au 12 septembre / ou du 12 au 19 septembre 2026.</li>
+        </ul>
+        <div class="meta">
+          <span class="only-en">Total estimated time of the experiments : <b>~7 hours</b></span>
+          <span class="only-fr">Durée totale estimée des expériences : <b>~7 heures </b></span>
+          <span class="only-en">Compensation : <b>€150</b></span>
+          <span class="only-fr">Indemnisation : <b>150 €</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="callout only-en">
+      Compensation for the experimental sessions is paid only if all measurements for that
+      session are completed.
+    </div>
+    <div class="callout only-fr">
+      L'indemnisation des sessions expérimentales est versée uniquement si toutes les mesures de
+      la session ont été complétées.
+    </div>
+  </section>
+
+  <section id="venue">
+    <div class="section-head">
+      <span class="eyebrow only-en">Where you'll be staying</span>
+      <span class="eyebrow only-fr">Où vous logerez</span>
+      <h2 class="only-en">The Venue</h2>
+      <h2 class="only-fr">Le lieu</h2>
+    </div>
+
+    <div class="photo-grid">
+      <div class="photo-frame">
+        <img src="assets/venue-landscape.jpg" alt="Vue aérienne du Jardin Soleil et Lune" onerror="this.closest('.photo-frame').classList.add('img-missing')">
+        <span class="photo-caption only-en">Photo coming soon</span>
+        <span class="photo-caption only-fr">Photo à venir</span>
+      </div>
+      <div class="photo-frame">
+        <img src="assets/venue-room.jpg" alt="Exemple de chambre" onerror="this.closest('.photo-frame').classList.add('img-missing')">
+        <span class="photo-caption only-en">Photo coming soon</span>
+        <span class="photo-caption only-fr">Photo à venir</span>
+      </div>
+      <div class="photo-frame">
+        <img src="assets/venue-dining.jpg" alt="Salle commune / restaurant" onerror="this.closest('.photo-frame').classList.add('img-missing')">
+        <span class="photo-caption only-en">Photo coming soon</span>
+        <span class="photo-caption only-fr">Photo à venir</span>
+      </div>
+    </div>
+
+    <p class="only-en">
+      <strong>Jardin Soleil et Lune : 55 rue des Clairmontelles, Le Poizat-Lalleyriat, France (Ain)</strong>. 
+      <br><br>It is an eco-friendly retreat center set in open countryside, at 850&nbsp;m of altitude, in the Ain department, roughly 45 minutes from Geneva and 1h15 from Lyon by car.
+    </p>
+    <p class="only-fr">
+      <strong>Jardin Soleil et Lune : 55 rue des Clairmontelles, Le Poizat-Lalleyriat (Ain).</strong> 
+      <br><br>C'est un éco-lieu situé en pleine nature, à 850&nbsp;m d'altitude, dans le département de l'Ain, à environ 45 minutes de Genève et 1h15 de Lyon en voiture.
+    </p>
+    <p>
+      <a href="https://www.grandsgites.com/gite-01-jardins-soleil-lune-6982.htm" target="_blank" rel="noopener">
+        <span class="only-en">See the venue's listing on Grands Gîtes ↗</span>
+        <span class="only-fr">Voir la fiche du lieu sur Grands Gîtes ↗</span>
+      </a>
+    </p>
+    <ul class="plain-list only-en">
+      <li>Each participant has a single or shared room, depending on their preference (a slight price difference applies).</li>
+      <li>There is a professional kitchen; meals will be shared and prepared by a cook. There is also a dedicated activity room for group meditation practice.</li>
+      <li>Pets are not allowed on the premises.</li>
+    </ul>
+    <ul class="plain-list only-fr">
+      <li>Chaque participant·e dispose d'une chambre individuelle ou partagée, selon sa préférence (une légère différence de tarif s'applique).</li>
+      <li>Il y a une cuisine professionnelle ; les repas seront pris ensemble et préparés par une cheffe. Il y a également une salle d’activité dédiée à la pratique collective de la méditation.</li>
+      <li>Les animaux de compagnie ne sont pas acceptés sur le site.</li>
+    </ul>
+  </section>
+
+  <section id="travel">
+    <div class="section-head">
+      <span class="eyebrow only-en">Getting to the Retreat</span>
+      <span class="eyebrow only-fr">Comment venir à la retraite</span>
+      <h2 class="only-en">Directions</h2>
+      <h2 class="only-fr">Le trajet</h2>
+      <p class="only-en">
+        <strong>The research team will pick everyone up at Bellegarde-sur-Valserine train station.</strong>
+        <br><br> To get to this station: <br> 
+        <strong>(1)</strong> If you are already in the region and nearby, traveling by car is entirely possible. <br>
+        <strong>(2)</strong> If you are near Paris, Lyon, or Geneva train stations, you can take a regional train directly to Bellegarde-sur-Valserine station. <br>
+        <strong>(3)</strong> If you are coming from farther away: you should first travel to Paris, Lyon, or Geneva by plane or train, and then take a regional train to Bellegarde-sur-Valserine.
+        <br><br>The details below outline each step, station by station.
+      </p>
+      <p class="only-fr">
+        <strong>L'équipe de recherche viendra chercher tout le monde à la gare de Bellegarde-sur-Valserine</strong>. 
+        <br><br> Pour se rendre à cette gare : <br> 
+        <strong>(1)</strong> Si vous êtes déjà dans la région et proche du lieu, le trajet en voiture est tout à fait possible. <br>
+        <strong>(2)</strong> Si vous êtes proches des gares de Paris, Lyon ou Genève, vous pouvez directement prendre un train régional pour la gare de Bellegarde-sur-Valserine. <br>
+        <strong>(3)</strong> Si vous êtes loin : vous devez rejoindre Paris, Lyon ou Genève en avion ou en train, puis prendre un train régional jusqu'à Bellegarde-sur-Valserine.
+        <br><br>Le détail ci-dessous précise chaque étape, gare par gare.
+      </p>
+    </div>
+
+    <div class="callout only-en" style="margin-bottom:24px;">
+      Please book your tickets as soon as possible and send the research team your arrival time
+      at the station. Travel costs are covered by the participant.
+    </div>
+    <div class="callout only-fr" style="margin-bottom:24px;">
+      Merci de prendre le plus rapidement possible vos billets et d'envoyer aux chercheurs vos horaires d'arrivée à la gare de Bellegarde. Le trajet est au frais du participant.
+    </div>
+
+    <div class="week-card">
+      <div class="week-head">
+        <h3><span class="only-en">Coming from Paris</span><span class="only-fr">Depuis Paris</span></h3>
+        <span class="dates only-en">~2h30 to Bellegarde</span>
+        <span class="dates only-fr">~2h30 jusqu'à Bellegarde</span>
+      </div>
+      <div class="week-body">
+        <div class="timeline-row">
+          <div class="point"><span class="only-en">Step 1</span><span class="only-fr">Étape 1</span><span class="sub only-en">Arrival by plane</span><span class="sub only-fr">Arrivée en avion</span></div>
+          <div class="detail only-en">
+            Paris has 3 airports. Depending on where your flight lands, here's how to reach <strong>Gare de Lyon</strong> (the Paris train station serving the southeast):
+            <ul class="note dash-list">
+              <li><strong>From Orly Airport</strong> : Metro line 14 (subway) to Paris Gare de Lyon station</li>
+              <li><strong>From Charles de Gaulle Airport (CDG)</strong> : RER B (suburban express train) to Châtelet-Les Halles. Then, Metro line A (subway) to Paris Gare de Lyon station</li>
+              <li><strong>From Beauvais Airport</strong> (~1h15 outside Paris): shuttle bus organized by the airport to Porte Maillot. Then, Metro line 1 (subway) to Paris Gare de Lyon station.</li>
+            </ul>
+          </div>
+          <div class="detail only-fr">
+            Paris compte 3 aéroports. Selon celui où atterrit votre vol, rejoignez la <strong>Paris Gare de Lyon</strong> (la gare parisienne desservant le sud-est) de la manière suivante :
+            <ul class="note dash-list">
+              <li><strong>Depuis l'Aéroport d'Orly</strong> : Métro ligne 14 jusqu'à Paris Gare de Lyon</li>
+              <li><strong>Depuis l'Aéroport Charles de Gaulle (CDG)</strong> : RER B jusqu'à Châtelet-Les Halles. Puis, Métro ligne A jusqu'à Paris Gare de Lyon</li>
+              <li><strong>Depuis l'Aéroport de Beauvais</strong> (~1h15 de Paris) : navette bus organisée par l'aéroport jusqu'à Porte Maillot. Puis, Métro ligne 1 jusqu'à Paris Gare de Lyon</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <div class="point"><span class="only-en">Step 2</span><span class="only-fr">Étape 2</span><span class="sub only-en">Train</span><span class="sub only-fr">Train</span></div>
+          <div class="detail only-en">
+            From <strong>Gare de Lyon Part-Dieu (in Lyon)</strong>, take a direct train to Bellegarde-sur-Valserine (~2h40).
+          </div>
+          <div class="detail only-fr">
+            Depuis la <strong>Gare de Lyon Part-Dieu (à Lyon)</strong>, prenez un train direct jusqu'à
+            Bellegarde-sur-Valserine (~2h40).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-head">
+        <h3><span class="only-en">Coming from Lyon</span><span class="only-fr">Depuis Lyon</span></h3>
+        <span class="dates only-en">~1h to Bellegarde</span>
+        <span class="dates only-fr">~1h jusqu'à Bellegarde</span>
+      </div>
+      <div class="week-body">
+        <div class="timeline-row">
+          <div class="point"><span class="only-en">Step 1</span><span class="only-fr">Étape 1</span><span class="sub only-en">Arrival by plane</span><span class="sub only-fr">Arrivée en avion</span></div>
+          <div class="detail only-en">
+            From <strong>Lyon–Saint-Exupéry Airport</strong>, take the <strong>Rhônexpress</strong>(an express tram service) to <strong>Lyon Part-Dieu</strong> train station.
+            <ul class="note dash-list">
+              <li>The station is directly at the airport (between terminals 1 and 2).</li>
+              <li>Duration: less than 30 minutes to Lyon Part-Dieu.</li>
+              <li>Fares: one-way from €16 (full fare).</li>
+              <li>No reservation needed: buy your ticket at the machine, online, or on board.</li>
+              <li>Frequency: every 15 minutes, 7 days a week, roughly from 5am to midnight.</li>
+            </ul>
+          </div>
+          <div class="detail only-fr">
+            Depuis l'<strong>aéroport de Lyon–Saint-Exupéry</strong>, prenez le <strong>Rhônexpress</strong>(tramway express) jusqu'à la gare de <strong>Lyon Part-Dieu</strong>.
+            <ul class="note dash-list">
+              <li>La station est directement à l'aéroport (entre les terminaux 1 et 2).</li>
+              <li>Durée : moins de 30 minutes jusqu'à Lyon Part-Dieu.</li>
+              <li>Tarifs : aller simple à partir de 16 € (plein tarif).</li>
+              <li>Pas de réservation nécessaire : billet au distributeur, en ligne, ou à bord.</li>
+              <li>Fréquence : toutes les 15 minutes, 7j/7, environ de 5h à minuit.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <div class="point"><span class="only-en">Step 2</span><span class="only-fr">Étape 2</span><span class="sub only-en">Train</span><span class="sub only-fr">Train</span></div>
+          <div class="detail only-en">
+            From <strong>Lyon Part-Dieu</strong> station, take a train to Bellegarde-sur-Valserine
+            (~1h).
+          </div>
+          <div class="detail only-fr">
+            Depuis la gare de <strong>Lyon Part-Dieu</strong>, prenez un train jusqu'à
+            Bellegarde-sur-Valserine (~1h).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-head">
+        <h3><span class="only-en">Coming from Geneva</span><span class="only-fr">Depuis Genève</span></h3>
+        <span class="dates only-en">~1h to Bellegarde</span>
+        <span class="dates only-fr">~1h jusqu'à Bellegarde</span>
+      </div>
+      <div class="week-body">
+        <div class="timeline-row">
+          <div class="point"><span class="only-en">Step 1</span><span class="only-fr">Étape 1</span><span class="sub only-en">Arrival by plane</span><span class="sub only-fr">Arrivée en avion</span></div>
+          <div class="detail only-en">
+            From <strong>Geneva Airport</strong> (Switzerland), take Tram 15 (tramway) to
+            <strong>Gare de Cornavin</strong>, Geneva's main train station.
+          </div>
+          <div class="detail only-fr">
+            Depuis l'<strong>aéroport de Genève</strong> (Suisse), prenez le tramway 15 jusqu'à la
+            <strong>gare de Cornavin</strong>, la gare principale de Genève.
+          </div>
+        </div>
+        <div class="timeline-row">
+          <div class="point"><span class="only-en">Step 2</span><span class="only-fr">Étape 2</span><span class="sub only-en">Train</span><span class="sub only-fr">Train</span></div>
+          <div class="detail only-en">
+            From <strong>Gare de Cornavin</strong>, take a train to Bellegarde-sur-Valserine
+            (~1h), it's just across the border in France.
+          </div>
+          <div class="detail only-fr">
+            Depuis la <strong>gare de Cornavin</strong>, prenez un train jusqu'à
+            Bellegarde-sur-Valserine (~1h), juste de l'autre côté de la frontière, en France.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout only-en">
+      <strong>Booking tools:</strong>
+      <a href="https://www.kayak.fr" target="_blank" rel="noopener">Kayak</a> to compare flight
+      prices into Paris, Lyon, or Geneva, and
+      <a href="https://www.sncf-connect.com" target="_blank" rel="noopener">SNCF Connect</a> to
+      book any train in France (including the connection to Bellegarde-sur-Valserine). 
+    </div>
+    <div class="callout only-fr">
+      <strong>Outils de réservation :</strong>
+      <a href="https://www.kayak.fr" target="_blank" rel="noopener">Kayak</a> pour comparer les
+      prix des vols vers Paris, Lyon ou Genève, et
+      <a href="https://www.sncf-connect.com" target="_blank" rel="noopener">SNCF Connect</a> pour
+      réserver n'importe quel trajet en train en France (y compris la correspondance jusqu'à
+      Bellegarde-sur-Valserine). 
+    </div>
+  </section>
+
+
+  <section id="schedule">
+    <div class="section-head">
+      <h2 class="only-en">Arrival &amp; Departure Schedule</h2>
+      <h2 class="only-fr">Horaires d'arrivée &amp; de départ</h2>
+      <p class="only-en">To ensure the retreat runs smoothly, please try to arrive and depart within the time slots 
+        listed below for your week, and plan your travel accordingly.</p>
+      <p class="only-fr">Pour que la retraite se déroule au mieux, merci d'essayer d'arriver et de partir dans les créneaux ci-dessous 
+        pour votre semaine, et donc de prévoir votre trajet en conséquence.</p>
+    </div>
+
+    <div class="week-card">
+      <div class="week-head">
+        <h3><span class="only-en">Week 1</span><span class="only-fr">Semaine 1</span></h3>
+        <span class="dates">Saturday 5 - Saturday 12 September 2026</span>
+      </div>
+      <div class="week-body">
+        <div class="timeline-row">
+          <div class="point"><span class="only-en">Arrival</span><span class="only-fr">Arrivée</span><span class="sub only-en">Sat 5 Sept</span><span class="sub only-fr">Sam. 5 sept.</span></div>
+          <div class="detail">
+            <strong class="only-en">As early as possible in the day.</strong>
+            <strong class="only-fr">Le plus tôt possible dans la journée.</strong>
+            <span class="only-en"> This gives everyone time to settle in.</span>
+            <span class="only-fr"> Cela laisse à chacun le temps de s'installer.</span>
+            <span class="note only-en">If you are travelling from far away, arriving later in the day
+              is fine too. </span>
+            <span class="note only-fr">Si vous venez de loin, arriver plus tard dans la journée
+              ne pose pas de problème. </span>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <div class="point"><span class="only-en">Departure</span><span class="only-fr">Départ</span><span class="sub only-en">Sat 12 Sept</span><span class="sub only-fr">Sam. 12 sept.</span></div>
+          <div class="detail">
+            <strong class="only-en">In the morning, if possible.</strong>
+            <strong class="only-fr">Dans la matinée, si possible.</strong>
+            <span class="only-en"> The Week 2 group will be arriving that same
+            afternoon, so a morning departure helps with the changeover at the venue !</span>
+            <span class="only-fr"> Le groupe de la semaine 2 arrivera l'après-midi même, un
+            départ le matin facilite donc le changement de groupe sur le site !</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-head">
+        <h3><span class="only-en">Week 2</span><span class="only-fr">Semaine 2</span></h3>
+        <span class="dates">Saturday 12 - Saturday 19 September 2026</span>
+      </div>
+      <div class="week-body">
+        <div class="timeline-row">
+          <div class="point"><span class="only-en">Arrival</span><span class="only-fr">Arrivée</span><span class="sub only-en">Sat 12 Sept</span><span class="sub only-fr">Sam. 12 sept.</span></div>
+          <div class="detail">
+            <strong class="only-en">Early afternoon, if possible.</strong>
+            <strong class="only-fr">Début d'après-midi, si possible.</strong>
+            <span class="only-en"> The first week group will have departed that same
+            morning.</span>
+            <span class="only-fr"> Le groupe de la première semaine sera parti le matin même.</span>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <div class="point"><span class="only-en">Departure</span><span class="only-fr">Départ</span><span class="sub only-en">Sat 19 Sept</span><span class="sub only-fr">Sam. 19 sept.</span></div>
+          <div class="detail">
+            <strong class="only-en">During the day, at the time that best suits your travel plans.</strong>
+            <strong class="only-fr">Dans la journée, l’horaire qui vous convient le mieux en fonction de vos trajets.</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout only-en">
+      If your travel plans make it difficult to arrive or depart within these windows, let us know at
+      <a href="mailto:eugenie.lanchou@inserm.fr">eugenie.lanchou@inserm.fr</a>.
+    </div>
+    <div class="callout only-fr">
+      Si vos plans de voyage rendent difficile une arrivée ou un départ dans ces créneaux, dites-le-nous à
+      <a href="mailto:eugenie.lanchou@inserm.fr">eugenie.lanchou@inserm.fr</a>.
+    </div>
+  </section>
+  <section id="costs">
+    <div class="section-head">
+      <span class="eyebrow only-en">Financial aspect</span>
+      <span class="eyebrow only-fr">Aspect financier</span>
+      <h2 class="only-en">Accommodation &amp; Costs</h2>
+      <h2 class="only-fr">Hébergement &amp; tarifs</h2>
+    </div>
+
+    <ul class="info-list" style="margin-top:20px;">
+      <li>
+        <span class="label only-en">Accomodation</span><span class="label only-fr">Hébergement</span>
+        <div class="only-en">
+          Two accommodation options are available:
+          <ul class="dash-list">
+            <li>single rooms at €26/night (€182 for the week)</li>
+            <li>double rooms at €23/night per person (€161 for the week)</li>
+          </ul>
+          There are 10 single rooms and 5 double rooms available per week, so if you would like to book in advance, please contact <a href="mailto:eugenie.lanchou@inserm.fr">eugenie.lanchou@inserm.fr</a>.
+        </div>
+        <div class="only-fr">
+          Deux options d’hébergement sont disponibles :
+          <ul class="dash-list">
+            <li>chambres individuelles à 26 €/nuit (182 € pour la semaine)</li>
+            <li>chambres pour deux personnes à 23 €/nuit par personne (161 € pour la semaine)</li>
+          </ul>
+          Il y a 10 chambres individuelles et 5 chambres doubles par semaine ; si vous souhaitez réserver dès maintenant, veuillez contacter <a href="mailto:eugenie.lanchou@inserm.fr">eugenie.lanchou@inserm.fr</a>.
+        </div>
+      </li>
+      <li>
+        <span class="label only-en">Meals</span><span class="label only-fr">Repas</span>
+        <span class="only-en">€30 per day (€210 for the week) including breakfast, lunch, and dinner, as well as hot drinks served during two daily breaks. All meals are fully vegetarian and prepared on site by a cook.</span>
+        <span class="only-fr">30 € par jour (soit 210 € pour la semaine), comprenant le petit-déjeuner, le déjeuner et le dîner, ainsi que des boissons chaudes servies lors de deux pauses quotidiennes. Tous les repas sont entièrement végétariens et préparés sur place par un cuisinier.</span>
+      </li>
+      <li>
+        <span class="label only-en">Travel</span><span class="label only-fr">Transport</span>
+        <span class="only-en">Travel costs to and from the venue are at your own expense.</span>
+        <span class="only-fr">Les frais de transport jusqu'au lieu de retraite sont à votre charge.</span>
+      </li>
+      <li>
+        <span class="label only-en">Covered by the study</span><span class="label only-fr">Pris en charge par l'étude</span>
+        <span class="only-en">The costs related to organizing the retreat (compensation for the teacher, booking of shared spaces, cleaning, etc.) are covered by the research team.</span>
+        <span class="only-fr">Les frais liés à l’organisation de la retraite (rémunération de l’enseignante, réservation des salles communes, ménage, etc.) sont pris en charge par l’équipe de recherche.</span>
+      </li>
+      <li>
+        <span class="label only-en">Compensation</span><span class="label only-fr">Indemnisation</span>
+        <span class="only-en">€150 for the experimental sessions, paid only once all measurements for a session are completed.</span>
+        <span class="only-fr">150 €, versée uniquement si toutes les mesures d'une session sont complétées.</span>
+      </li>
+      <li>
+        <span class="label only-en">Total</span><span class="label only-fr">Total</span>
+        <span class="only-en">Between €63 and €66/day depending on your room choice => €441 to €462 for the week in total (accommodation + meals), minus the €150 compensation you will receive for the experimental sessions.</span>
+        <span class="only-fr">Entre 63 € et 66 €/jour selon votre choix de chambre => soit 441 € à 462 € pour la semaine au total (hébergement + repas), moins les 150 € d'indemnisation que vous recevrez pour les sessions expérimentales.</span>
+      </li>
+    </ul>
+
+    <div class="callout only-en">
+      In the event of significant financial difficulties, you may contact us. We will try to find a suitable solution, depending on the requests and the available 
+      research funding : <a href="mailto:eugenie.lanchou@inserm.fr">eugenie.lanchou@inserm.fr</a>
+    </div>
+    <div class="callout only-fr">
+      En cas de difficultés financières importantes, vous pouvez nous contacter. Nous essaierons de trouver une solution adaptée, en fonction des demandes 
+      et des financements de recherche disponibles : <a href="mailto:eugenie.lanchou@inserm.fr">eugenie.lanchou@inserm.fr</a>
+    </div>
+  </section>
+
+  <section id="practical">
+    <div class="section-head" style="margin-bottom:14px;">
+      <span class="eyebrow only-en">Practical Information</span>
+      <span class="eyebrow only-fr">Infos pratiques</span>
+      <h2 class="only-en">Food during the retreat</h2>
+      <h2 class="only-fr">La restauration pendant la retraite</h2>
+    </div>
+    <p class="only-en">
+      Meals are mostly vegetarian, with vegan options offered regularly. Dairy and eggs may
+      occasionally appear, particularly at breakfast or in certain dishes.
+    </p>
+    <p class="only-fr">
+      Les repas seront végétariens, avec des options végétaliennes proposées
+      régulièrement. Des produits laitiers et des œufs pourront également être servis
+      occasionnellement, notamment au petit-déjeuner ou dans certains plats.
+    </p>
+    <div class="callout only-en">
+      If you have any dietary restrictions, please let us know by email before you arrive: <a href="mailto:eugenie.lanchou@inserm.fr">eugenie.lanchou@inserm.fr</a>.
+    </div>
+    <div class="callout only-fr">
+      En cas de restriction alimentaire, merci de nous prévenir par mail avant de venir : <a href="mailto:eugenie.lanchou@inserm.fr">eugenie.lanchou@inserm.fr</a>.
+    </div>
+
+    <div class="section-head" style="margin-top:56px;">
+      <h2 class="only-en">Good to know before you pack</h2>
+      <h2 class="only-fr">À savoir avant de faire votre sac</h2>
+    </div>
+    <ul class="plain-list">
+      <li><span class="only-en">Bed linens and towels are provided.</span><span class="only-fr">Les draps et serviettes sont fournis.</span></li>
+      <li><span class="only-en">Electrical outlets are the standard French/European type : bring an adapter if your devices need one.</span><span class="only-fr">Les prises électriques sont au format français (prévoir un adaptateur si besoin).</span></li>
+      <li><span class="only-en">Meditation cushions are provided, but you are welcome to bring your own if you prefer.</span><span class="only-fr">Les coussins de méditation sont fournis, mais vous pouvez apporter le vôtre si vous le souhaitez.</span></li>
+    </ul>
+  </section>
+
+  <section id="team">
+    <div class="section-head">
+      <span class="eyebrow only-en">Who is behind the study</span>
+      <span class="eyebrow only-fr">Qui est derrière l'étude</span>
+      <h2 class="only-en">People on Site &amp; Research Team</h2>
+      <h2 class="only-fr">Personnes sur place &amp; équipe de recherche</h2>
+    </div>
+
+    <p>
+      <a href="https://www.nomstudy.org/en/team/" target="_blank" rel="noopener">
+        <span class="only-en">See the full research team on nomstudy.org ↗</span>
+        <span class="only-fr">Voir l'équipe de recherche complète sur nomstudy.org ↗</span>
+      </a>
+    </p>
+
+    <div class="subhead">
+      <h3 class="only-en">Meditation Teacher</h3>
+      <h3 class="only-fr">Enseignante de méditation</h3>
+    </div>
+    <div class="teacher-card">
+      <div class="name">Antonia Dorthea Sumbundu</div>
+      <p class="only-en">
+        Trained as a Dharma teacher, clinical psychologist, and mental health specialist, she
+        leads meditation retreats, and teaches and mentors students internationally.
+      </p>
+      <p class="only-fr">
+        Formée comme enseignante du Dharma, psychologue clinicienne et spécialiste en santé
+        mentale, elle guide des retraites de méditation, enseigne et accompagne des étudiants à
+        l'échelle internationale.
+      </p>
+      <a href="https://www.nomstudy.org/person/antonia-dorthea-sumbundu/" target="_blank" rel="noopener">
+        <span class="only-en">Read more ↗</span><span class="only-fr">En savoir plus ↗</span>
+      </a>
+    </div>
+
+    <div class="subhead">
+      <h3>Contacts</h3>
+    </div>
+    <div class="teacher-card">
+      <div class="name">Eugénie Lanchou</div>
+      <p class="only-en">
+        PhD student on the project. She can answer some of your questions and will be on site
+        during the retreat.
+      </p>
+      <p class="only-fr">
+        Doctorante sur le projet. Elle peut répondre à certaines de vos questions et sera sur
+        place pendant la retraite.
+      </p>
+      <a href="mailto:eugenie.lanchou@inserm.fr">eugenie.lanchou@inserm.fr</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="contact-box">
+      <h2 class="only-en">Thank you!</h2>
+      <h2 class="only-fr">Merci !</h2>
+      <p class="only-en">Thank you for taking part in the Nature of Mind study — we look forward to welcoming you.</p>
+      <p class="only-fr">Merci de participer à l'étude Nature of Mind — nous avons hâte de vous accueillir.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="logo-row">
+      <img src="assets/logo-crnl.png" alt="Lyon Neuroscience Research Center (CRNL)" onerror="this.style.display='none'">
+      <img src="assets/logo-inserm.png" alt="Inserm" onerror="this.style.display='none'">
+      <img src="assets/logo-epfl.png" alt="EPFL" onerror="this.style.display='none'">
+      <img src="assets/logo-wisconsin.png" alt="University of Wisconsin–Madison" onerror="this.style.display='none'">
+      <img src="assets/logo-uva.png" alt="University of Virginia" onerror="this.style.display='none'">
+    </div>
+    <div class="fine-print">
+      <span class="only-en">Nature of Mind Research Project.</span>
+      <span class="only-fr">Nature of Mind Research Project</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var buttons = document.querySelectorAll('.lang-btn');
+      function applyLang(lang) {
+        document.body.setAttribute('data-lang', lang);
+        document.documentElement.setAttribute('lang', lang);
+        buttons.forEach(function (b) {
+          b.classList.toggle('active', b.getAttribute('data-set-lang') === lang);
+        });
+        localStorage.setItem('nom-lang', lang);
+      }
+      buttons.forEach(function (b) {
+        b.addEventListener('click', function () { applyLang(b.getAttribute('data-set-lang')); });
+      });
+      var saved = localStorage.getItem('nom-lang');
+      applyLang(saved === 'en' ? 'en' : 'fr');
+    })();
+  </script>
+
+</body>
+</html>
