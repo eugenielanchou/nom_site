@@ -119,6 +119,8 @@
     text-decoration: none;
     color: var(--ink-600);
     font-weight: 500;
+    display: inline-block;
+    padding: 4px 0;
   }
   nav.links a:hover { color: var(--maroon-700); }
 
@@ -183,6 +185,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-wrap: wrap;
   }
   .card .tag {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -243,6 +246,22 @@
   }
   .photo-frame.img-missing img { display: none; }
   .photo-frame.img-missing .photo-caption { display: flex; }
+
+  .maps-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--maroon-700);
+    color: #fff;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 700;
+    font-size: 0.86rem;
+    padding: 11px 20px;
+    border-radius: 999px;
+    margin: 4px 0 4px;
+    min-height: 44px;
+  }
 
   /* ---------- Travel route list ---------- */
   .route-list { list-style: none; margin: 10px 0 0; padding: 0; }
@@ -426,6 +445,9 @@
     text-decoration: none;
     padding: 11px 26px;
     border-radius: 999px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
   }
   .contact-box a.btn-outline {
     background: transparent;
@@ -462,6 +484,48 @@
     font-size: 0.9rem;
     color: var(--ink-400);
   }
+
+  /* ==========================================================
+     Mobile tuning — same design, same content, adapted below 700px:
+     bigger tap targets, single-column stacking everywhere,
+     tighter spacing so there's less scrolling on a phone.
+     ========================================================== */
+  @media (max-width: 700px) {
+    .topbar-inner { padding: 10px 16px; gap: 10px; }
+    .topbar-right { width: 100%; flex-direction: column; align-items: flex-start; gap: 10px; }
+    nav.links { width: 100%; gap: 4px 14px; overflow-x: auto; }
+    nav.links a { font-size: 0.84rem; padding: 6px 0; }
+    .lang-switch { align-self: flex-end; }
+    .lang-btn { padding: 9px 16px; min-height: 40px; }
+
+    .hero { padding: 40px 18px 34px; }
+    .hero h1 { font-size: 1.6rem; margin-bottom: 22px; }
+    .hero .eyebrow { margin-bottom: 16px; font-size: 0.95rem; }
+    .hero p.lead { font-size: 1rem; }
+
+    section { padding: 36px 18px; }
+    .section-head { margin-bottom: 20px; }
+    .section-head h2, .section-head h3 { font-size: 1.3rem; }
+
+    p { font-size: 1rem; }
+
+    .card { padding: 20px; }
+    .week-card .week-head, .week-body { padding-left: 18px; padding-right: 18px; }
+
+    .timeline-row {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+    .timeline-row .point .sub { display: inline-block; margin-left: 6px; margin-top: 0; }
+
+    .photo-frame { aspect-ratio: 16 / 10; }
+
+    .contact-box { padding: 24px 18px; }
+    .contact-box .btn-row { flex-direction: column; }
+    .contact-box a.btn { display: flex; justify-content: center; width: 100%; padding: 13px 20px; }
+
+    .logo-row img { height: 64px; padding: 8px 12px; }
+  }
 </style>
 </head>
 <body data-lang="fr">
@@ -495,11 +559,11 @@
       <h1 class="only-en">Participant Information Booklet</h1>
       <h1 class="only-fr">Livret d'informations<br>pour les participants</h1>
       <p class="lead only-en">
-        On this page you'll find all the practical information about the study, and in particular the September 2026 meditation retreat: 
+        On this page you'll find all the practical information about the study, and in particular the September 2026 meditation retreat:
         how to get there, your arrival and departure times, as well as rates and accommodation conditions.
       </p>
       <p class="lead only-fr">
-        Vous trouverez sur cette page toutes les informations pratiques concernant l'étude, et notamment la retraite de méditation de septembre 2026 : comment vous y rendre, 
+        Vous trouverez sur cette page toutes les informations pratiques concernant l'étude, et notamment la retraite de méditation de septembre 2026 : comment vous y rendre,
         vos horaires d'arrivée et de départ, ainsi que les tarifs et conditions d'hébergement.
       </p>
     </div>
@@ -513,9 +577,9 @@
       <h2 class="only-fr">Aperçu</h2>
     </div>
     <div class="callout" style="margin-top:0; margin-bottom:20px;">
-      <span class="only-en">In collaboration with Mingyur Rinpoche, a meditation teacher at Tergar International 
+      <span class="only-en">In collaboration with Mingyur Rinpoche, a meditation teacher at Tergar International
         in the Tibetan Buddhist tradition, an international team of researchers has come together to study meditation on the Nature of Mind.</span>
-      <span class="only-fr">En collaboration avec Mingyur Rinpoché, enseignant de méditation à Tergar International dans la tradition du bouddhisme tibétain, 
+      <span class="only-fr">En collaboration avec Mingyur Rinpoché, enseignant de méditation à Tergar International dans la tradition du bouddhisme tibétain,
         une équipe internationale de chercheurs s'est constituée pour étudier la méditation sur la Nature de l'Esprit.</span>
     </div>
     <p class="only-en">
@@ -523,26 +587,26 @@
       exploring processes related to <strong>consciousness</strong>, <strong>sense of self</strong>, and <strong>emotions</strong> within this contemplative context.
     </p>
     <p class="only-fr">
-      Ce projet vise à mieux comprendre <strong>l'expérience subjective</strong> vécue pendant la pratique 
+      Ce projet vise à mieux comprendre <strong>l'expérience subjective</strong> vécue pendant la pratique
       méditative, en explorant les processus liés à <strong>la conscience</strong>, au <strong>sentiment de soi</strong> et aux <strong>émotions</strong> dans ce contexte contemplatif.
     </p>
     <p class="only-en">
-      To this end, the team combines <strong>questionnaires</strong> with <strong>scientific experiments</strong>, including 
+      To this end, the team combines <strong>questionnaires</strong> with <strong>scientific experiments</strong>, including
       measures of brain electrical activity (EEG) and bodily physiological activity, recorded during meditation sessions.
     </p>
     <p class="only-fr">
-      Pour cela, l'équipe combine <strong>questionnaires</strong> et des <strong>expériences scientifiques</strong>, 
-      incluant des mesures de l'activité électrique cérébrale (EEG) et de l'activité physiologique 
+      Pour cela, l'équipe combine <strong>questionnaires</strong> et des <strong>expériences scientifiques</strong>,
+      incluant des mesures de l'activité électrique cérébrale (EEG) et de l'activité physiologique
       corporelle, réalisées pendant les séances de méditation.
     </p>
     <p class="only-en">
-      This study is aimed at experienced practitioners who have received direct 
-      introduction to the Nature of Mind from a qualified teacher in the <strong>Mahāmudrā / Dzogchen</strong> 
+      This study is aimed at experienced practitioners who have received direct
+      introduction to the Nature of Mind from a qualified teacher in the <strong>Mahāmudrā / Dzogchen</strong>
       tradition, and who engage regularly in these teachings.
     </p>
     <p class="only-fr">
-      Ce travail s'adresse à des pratiquants expérimentés ayant reçu une introduction directe à 
-      la Nature de l'Esprit par un enseignant qualifié dans la <strong>tradition Mahāmudrā / Dzogchen</strong>, 
+      Ce travail s'adresse à des pratiquants expérimentés ayant reçu une introduction directe à
+      la Nature de l'Esprit par un enseignant qualifié dans la <strong>tradition Mahāmudrā / Dzogchen</strong>,
       et qui s'engagent régulièrement dans ces enseignements.
     </p>
   </section>
@@ -565,15 +629,14 @@
             <br><br>We will ask you to complete these questionnaires immediately after a formal meditation session involving practices aimed at recognizing and stabilizing awareness of the Nature of Mind.
             <br><strong>Your task will be to evaluate the extent to which selected items from previously validated questionnaires adequately capture the experience of the Nature of Mind and/or other notable meditation experiences.</strong>
             <br><br>All practical information and necessary instructions will be provided in the email accompanying the questionnaire links.
-
         </p>
         <p class="only-fr" style="margin-top:0;">
-          Vous recevrez par e-mail deux liens vous permettant d'accéder aux questionnaires. 
+          Vous recevrez par e-mail deux liens vous permettant d'accéder aux questionnaires.
           Il n'est pas nécessaire de les rechercher : l'équipe de recherche vous les enverra directement.
-          <br><br>Nous vous demanderons de compléter ces questionnaires immédiatement après une séance de méditation formelle comprenant des 
-          pratiques visant à reconnaître et à stabiliser la conscience de la Nature de l'Esprit. 
-          <br><strong>Votre tâche consistera à évaluer 
-          dans quelle mesure certains items, issus de questionnaires déjà validés, permettent de rendre compte de l'expérience de la Nature de 
+          <br><br>Nous vous demanderons de compléter ces questionnaires immédiatement après une séance de méditation formelle comprenant des
+          pratiques visant à reconnaître et à stabiliser la conscience de la Nature de l'Esprit.
+          <br><strong>Votre tâche consistera à évaluer
+          dans quelle mesure certains items, issus de questionnaires déjà validés, permettent de rendre compte de l'expérience de la Nature de
           l'Esprit et/ou d'expériences méditatives remarquables.</strong>
           <br><br>Toutes les informations pratiques et les consignes nécessaires seront précisées dans l'e-mail accompagnant les liens vers les questionnaires.
         </p>
@@ -596,21 +659,20 @@
           <span class="only-fr">Phase 2 <span class="tag">Retraite en présentiel</span></span>
         </h3>
         <p class="only-en" style="margin-top:0;">
-          The second phase of the study consists of a one-week meditation retreat, which will take place in France in <strong>September 2026</strong>. 
+          The second phase of the study consists of a one-week meditation retreat, which will take place in France in <strong>September 2026</strong>.
           During this retreat, you will alternate between group meditation practice sessions and experimental neuroscience sessions.
-          <br><br>Over the course of the week, you will take part in a total of <strong>three experimental sessions</strong>, each lasting approximately 2.5 hours. 
+          <br><br>Over the course of the week, you will take part in a total of <strong>three experimental sessions</strong>, each lasting approximately 2.5 hours.
           The aim of these experiments is to investigate different aspects of mental functioning, including self-awareness and emotions.
-          <br><br>During these sessions, various measurements will be collected, including physiological data (such as your heart rate), as well as recordings of 
+          <br><br>During these sessions, various measurements will be collected, including physiological data (such as your heart rate), as well as recordings of
           brain activity using a non-invasive technique called electroencephalography (EEG).
         </p>
         <p class="only-fr" style="margin-top:0;">
-          La deuxième phase de l'étude consiste en une retraite de méditation d'une semaine, qui se déroulera en France en <strong>septembre 2026</strong>. 
+          La deuxième phase de l'étude consiste en une retraite de méditation d'une semaine, qui se déroulera en France en <strong>septembre 2026</strong>.
           Durant cette retraite, vous alternerez entre des séances de pratique collective et des sessions expérimentales en neurosciences
-          <br><br>Au cours de cette semaine, vous participerez à un total de <strong>trois sessions expérimentales</strong> d'environ 2 h 30 chacune. L'objectif de ces expériences 
+          <br><br>Au cours de cette semaine, vous participerez à un total de <strong>trois sessions expérimentales</strong> d'environ 2 h 30 chacune. L'objectif de ces expériences
           est d'étudier différents aspects du fonctionnement mental, notamment la conscience de soi et les émotions.
-          <br><br>Lors de ces sessions, différentes mesures seront recueillies, notamment des mesures physiologiques (telles que votre rythme cardiaque), ainsi que des 
+          <br><br>Lors de ces sessions, différentes mesures seront recueillies, notamment des mesures physiologiques (telles que votre rythme cardiaque), ainsi que des
           enregistrements de votre activité cérébrale à l'aide d'une technique non invasive appelée électroencéphalographie (EEG).
-          
         </p>
         <ul>
           <li class="only-en">In the Ain (France), near Lyon / Geneva.</li>
@@ -663,12 +725,18 @@
     </div>
 
     <p class="only-en">
-      <strong>Jardin Soleil et Lune : 55 rue des Clairmontelles, Le Poizat-Lalleyriat, France (Ain)</strong>. 
+      <strong>Jardin Soleil et Lune : 55 rue des Clairmontelles, Le Poizat-Lalleyriat, France (Ain)</strong>.
       <br><br>It is an eco-friendly retreat center set in open countryside, at 850&nbsp;m of altitude, in the Ain department, roughly 45 minutes from Geneva and 1h15 from Lyon by car.
     </p>
     <p class="only-fr">
-      <strong>Jardin Soleil et Lune : 55 rue des Clairmontelles, Le Poizat-Lalleyriat (Ain).</strong> 
+      <strong>Jardin Soleil et Lune : 55 rue des Clairmontelles, Le Poizat-Lalleyriat (Ain).</strong>
       <br><br>C'est un éco-lieu situé en pleine nature, à 850&nbsp;m d'altitude, dans le département de l'Ain, à environ 45 minutes de Genève et 1h15 de Lyon en voiture.
+    </p>
+    <p>
+      <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=55+rue+des+Clairmontelles+Le+Poizat-Lalleyriat+France" target="_blank" rel="noopener">
+        <span class="only-en">📍 Open in Maps</span>
+        <span class="only-fr">📍 Ouvrir dans Maps</span>
+      </a>
     </p>
     <p>
       <a href="https://www.grandsgites.com/gite-01-jardins-soleil-lune-6982.htm" target="_blank" rel="noopener">
@@ -696,15 +764,15 @@
       <h2 class="only-fr">Le trajet</h2>
       <p class="only-en">
         <strong>The research team will pick everyone up at Bellegarde-sur-Valserine train station.</strong>
-        <br><br> To get to this station: <br> 
+        <br><br> To get to this station: <br>
         <strong>(1)</strong> If you are already in the region and nearby, traveling by car is entirely possible. <br>
         <strong>(2)</strong> If you are near Paris, Lyon, or Geneva train stations, you can take a regional train directly to Bellegarde-sur-Valserine station. <br>
         <strong>(3)</strong> If you are coming from farther away: you should first travel to Paris, Lyon, or Geneva by plane or train, and then take a regional train to Bellegarde-sur-Valserine.
         <br><br>The details below outline each step, station by station.
       </p>
       <p class="only-fr">
-        <strong>L'équipe de recherche viendra chercher tout le monde à la gare de Bellegarde-sur-Valserine</strong>. 
-        <br><br> Pour se rendre à cette gare : <br> 
+        <strong>L'équipe de recherche viendra chercher tout le monde à la gare de Bellegarde-sur-Valserine</strong>.
+        <br><br> Pour se rendre à cette gare : <br>
         <strong>(1)</strong> Si vous êtes déjà dans la région et proche du lieu, le trajet en voiture est tout à fait possible. <br>
         <strong>(2)</strong> Si vous êtes proches des gares de Paris, Lyon ou Genève, vous pouvez directement prendre un train régional pour la gare de Bellegarde-sur-Valserine. <br>
         <strong>(3)</strong> Si vous êtes loin : vous devez rejoindre Paris, Lyon ou Genève en avion ou en train, puis prendre un train régional jusqu'à Bellegarde-sur-Valserine.
@@ -840,7 +908,7 @@
       <a href="https://www.kayak.fr" target="_blank" rel="noopener">Kayak</a> to compare flight
       prices into Paris, Lyon, or Geneva, and
       <a href="https://www.sncf-connect.com" target="_blank" rel="noopener">SNCF Connect</a> to
-      book any train in France (including the connection to Bellegarde-sur-Valserine). 
+      book any train in France (including the connection to Bellegarde-sur-Valserine).
     </div>
     <div class="callout only-fr">
       <strong>Outils de réservation :</strong>
@@ -848,7 +916,7 @@
       prix des vols vers Paris, Lyon ou Genève, et
       <a href="https://www.sncf-connect.com" target="_blank" rel="noopener">SNCF Connect</a> pour
       réserver n'importe quel trajet en train en France (y compris la correspondance jusqu'à
-      Bellegarde-sur-Valserine). 
+      Bellegarde-sur-Valserine).
     </div>
   </section>
 
@@ -857,9 +925,9 @@
     <div class="section-head">
       <h2 class="only-en">Arrival &amp; Departure Schedule</h2>
       <h2 class="only-fr">Horaires d'arrivée &amp; de départ</h2>
-      <p class="only-en">To ensure the retreat runs smoothly, please try to arrive and depart within the time slots 
+      <p class="only-en">To ensure the retreat runs smoothly, please try to arrive and depart within the time slots
         listed below for your week, and plan your travel accordingly.</p>
-      <p class="only-fr">Pour que la retraite se déroule au mieux, merci d'essayer d'arriver et de partir dans les créneaux ci-dessous 
+      <p class="only-fr">Pour que la retraite se déroule au mieux, merci d'essayer d'arriver et de partir dans les créneaux ci-dessous
         pour votre semaine, et donc de prévoir votre trajet en conséquence.</p>
     </div>
 
@@ -985,17 +1053,17 @@
       </li>
       <li>
         <span class="label only-en">Total</span><span class="label only-fr">Total</span>
-        <span class="only-en">Between €63 and €66/day depending on your room choice => €441 to €462 for the week in total (accommodation + meals), minus the €150 compensation you will receive for the experimental sessions.</span>
-        <span class="only-fr">Entre 63 € et 66 €/jour selon votre choix de chambre => soit 441 € à 462 € pour la semaine au total (hébergement + repas), moins les 150 € d'indemnisation que vous recevrez pour les sessions expérimentales.</span>
+        <span class="only-en">Between €53 and €56/day depending on your room choice => €371 to €392 for the week in total (accommodation + meals), minus the €150 compensation you will receive for the experimental sessions.</span>
+        <span class="only-fr">Entre 53 € et 56 €/jour selon votre choix de chambre => soit 371 € à 392 € pour la semaine au total (hébergement + repas), moins les 150 € d'indemnisation que vous recevrez pour les sessions expérimentales.</span>
       </li>
     </ul>
 
     <div class="callout only-en">
-      In the event of significant financial difficulties, you may contact us. We will try to find a suitable solution, depending on the requests and the available 
+      In the event of significant financial difficulties, you may contact us. We will try to find a suitable solution, depending on the requests and the available
       research funding : <a href="mailto:eugenie.lanchou@inserm.fr">eugenie.lanchou@inserm.fr</a>
     </div>
     <div class="callout only-fr">
-      En cas de difficultés financières importantes, vous pouvez nous contacter. Nous essaierons de trouver une solution adaptée, en fonction des demandes 
+      En cas de difficultés financières importantes, vous pouvez nous contacter. Nous essaierons de trouver une solution adaptée, en fonction des demandes
       et des financements de recherche disponibles : <a href="mailto:eugenie.lanchou@inserm.fr">eugenie.lanchou@inserm.fr</a>
     </div>
   </section>
@@ -1092,6 +1160,16 @@
       <h2 class="only-fr">Merci !</h2>
       <p class="only-en">Thank you for taking part in the Nature of Mind study — we look forward to welcoming you.</p>
       <p class="only-fr">Merci de participer à l'étude Nature of Mind — nous avons hâte de vous accueillir.</p>
+      <div class="btn-row">
+        <a class="btn" href="mailto:eugenie.lanchou@inserm.fr">
+          <span class="only-en">✉️ Email us</span>
+          <span class="only-fr">✉️ Nous écrire</span>
+        </a>
+        <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=55+rue+des+Clairmontelles+Le+Poizat-Lalleyriat+France" target="_blank" rel="noopener">
+          <span class="only-en">📍 Open venue in Maps</span>
+          <span class="only-fr">📍 Ouvrir le lieu dans Maps</span>
+        </a>
+      </div>
     </div>
   </section>
 
