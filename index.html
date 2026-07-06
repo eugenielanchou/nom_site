@@ -150,6 +150,24 @@
     opacity: 0.92;
   }
 
+  /* ---------- Tracking-sheet banner ---------- */
+  .tracker-banner {
+    background: var(--cream-100);
+    border-bottom: 1px solid var(--line);
+    padding: 22px 24px;
+  }
+  .tracker-banner-inner {
+    max-width: 880px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .tracker-banner p {
+    margin: 0 0 12px;
+    font-size: 1.02rem;
+    color: var(--ink-900);
+  }
+  .tracker-banner strong { color: var(--maroon-900); }
+
   /* ---------- Sections ---------- */
   section {
     max-width: 880px;
@@ -560,14 +578,25 @@
       <h1 class="only-fr">Livret d'informations<br>pour les participants</h1>
       <p class="lead only-en">
         On this page you'll find all the practical information about the study, and in particular the September 2026 meditation retreat:
-        how to get there, your arrival and departure times, as well as rates and accommodation conditions.
+        how to get there, rates and accommodation conditions, etc.
       </p>
       <p class="lead only-fr">
-        Vous trouverez sur cette page toutes les informations pratiques concernant l'étude, et notamment la retraite de méditation de septembre 2026 : comment vous y rendre,
-        vos horaires d'arrivée et de départ, ainsi que les tarifs et conditions d'hébergement.
+        Vous trouverez sur cette page toutes les informations pratiques concernant l'étude, et notamment la retraite de méditation de septembre 2026 : comment vous y rendre, 
+        les tarifs et conditions d'hébergement, ect.
       </p>
     </div>
   </header>
+
+  <div class="tracker-banner">
+    <div class="tracker-banner-inner">
+      <p class="only-en"><strong>📋 One thing to do now:</strong> tell us your practical details (room choice, dietary restrictions, travel schedule) in the shared tracking sheet.</p>
+      <p class="only-fr"><strong>📋 Une chose à faire dès maintenant :</strong> renseignez vos informations pratiques (chambre, restrictions alimentaires, horaires de trajet) dans le tableau de suivi partagé.</p>
+      <a class="maps-link" href="https://docs.google.com/spreadsheets/d/12_8DVH8-s1QEXB4cbUNmUZisy7rgYUDI/edit?usp=sharing" target="_blank" rel="noopener">
+        <span class="only-en">Open the shared tracking sheet ↗</span>
+        <span class="only-fr">Ouvrir le tableau de suivi ↗</span>
+      </a>
+    </div>
+  </div>
 
   <section id="overview">
     <div class="section-head">
@@ -781,11 +810,14 @@
     </div>
 
     <div class="callout only-en" style="margin-bottom:24px;">
-      Please book your tickets as soon as possible and send the research team your arrival time
-      at the station. Travel costs are covered by the participant.
+      Please book your tickets as soon as possible. <br>Once booked, let us know your arrival time at the station via the
+      <a href="https://docs.google.com/spreadsheets/d/12_8DVH8-s1QEXB4cbUNmUZisy7rgYUDI/edit?usp=sharing" target="_blank" rel="noopener">shared tracking sheet ↗</a>.
+      <br>Travel costs are covered by the participant.
     </div>
     <div class="callout only-fr" style="margin-bottom:24px;">
-      Merci de prendre le plus rapidement possible vos billets et d'envoyer aux chercheurs vos horaires d'arrivée à la gare de Bellegarde. Le trajet est au frais du participant.
+      Merci de prendre le plus rapidement possible vos billets. <br>Une fois réservés, indiquez vos horaires d'arrivée à la gare de Bellegarde dans
+      <a href="https://docs.google.com/spreadsheets/d/12_8DVH8-s1QEXB4cbUNmUZisy7rgYUDI/edit?usp=sharing" target="_blank" rel="noopener">le tableau de suivi partagé ↗</a>.
+      <br>Le trajet est au frais du participant.
     </div>
 
     <div class="week-card">
@@ -1020,7 +1052,7 @@
             <li>single rooms at €26/night (€182 for the week)</li>
             <li>double rooms at €23/night per person (€161 for the week)</li>
           </ul>
-          There are 10 single rooms and 5 double rooms available per week, so if you would like to book in advance, please contact <a href="mailto:eugenie.lanchou@inserm.fr">eugenie.lanchou@inserm.fr</a>.
+          There are 10 single rooms and 5 double rooms available per week — let us know your preference in the <a href="https://docs.google.com/spreadsheets/d/12_8DVH8-s1QEXB4cbUNmUZisy7rgYUDI/edit?usp=sharing" target="_blank" rel="noopener">shared tracking sheet ↗</a>.
         </div>
         <div class="only-fr">
           Deux options d'hébergement sont disponibles :
@@ -1028,7 +1060,7 @@
             <li>chambres individuelles à 26 €/nuit (182 € pour la semaine)</li>
             <li>chambres pour deux personnes à 23 €/nuit par personne (161 € pour la semaine)</li>
           </ul>
-          Il y a 10 chambres individuelles et 5 chambres doubles par semaine ; si vous souhaitez réserver dès maintenant, veuillez contacter <a href="mailto:eugenie.lanchou@inserm.fr">eugenie.lanchou@inserm.fr</a>.
+          Il y a 10 chambres individuelles et 5 chambres doubles par semaine : indiquez votre préférence dans <a href="https://docs.google.com/spreadsheets/d/12_8DVH8-s1QEXB4cbUNmUZisy7rgYUDI/edit?usp=sharing" target="_blank" rel="noopener">le tableau de suivi partagé ↗</a>.
         </div>
       </li>
       <li>
@@ -1085,10 +1117,10 @@
       occasionnellement, notamment au petit-déjeuner ou dans certains plats.
     </p>
     <div class="callout only-en">
-      If you have any dietary restrictions, please let us know by email before you arrive: <a href="mailto:eugenie.lanchou@inserm.fr">eugenie.lanchou@inserm.fr</a>.
+      If you have any dietary restrictions, please let us know in the <a href="https://docs.google.com/spreadsheets/d/12_8DVH8-s1QEXB4cbUNmUZisy7rgYUDI/edit?usp=sharing" target="_blank" rel="noopener">shared tracking sheet ↗</a>.
     </div>
     <div class="callout only-fr">
-      En cas de restriction alimentaire, merci de nous prévenir par mail avant de venir : <a href="mailto:eugenie.lanchou@inserm.fr">eugenie.lanchou@inserm.fr</a>.
+      En cas de restriction alimentaire, merci de nous le préciser dans <a href="https://docs.google.com/spreadsheets/d/12_8DVH8-s1QEXB4cbUNmUZisy7rgYUDI/edit?usp=sharing" target="_blank" rel="noopener">le tableau de suivi ↗</a>.
     </div>
 
     <div class="section-head" style="margin-top:56px;">
@@ -1164,6 +1196,10 @@
         <a class="btn" href="mailto:eugenie.lanchou@inserm.fr">
           <span class="only-en">✉️ Email us</span>
           <span class="only-fr">✉️ Nous écrire</span>
+        </a>
+        <a class="btn btn-outline" href="https://docs.google.com/spreadsheets/d/12_8DVH8-s1QEXB4cbUNmUZisy7rgYUDI/edit?usp=sharing" target="_blank" rel="noopener">
+          <span class="only-en">📋 Shared tracking sheet</span>
+          <span class="only-fr">📋 Tableau de suivi partagé</span>
         </a>
         <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=55+rue+des+Clairmontelles+Le+Poizat-Lalleyriat+France" target="_blank" rel="noopener">
           <span class="only-en">📍 Open venue in Maps</span>

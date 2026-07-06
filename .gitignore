@@ -1,2 +1,6 @@
 .DS_Store
 .claude/settings.local.json
+
+# Participant data — must never be committed to this public repo
+*.xlsx
+*.xls
